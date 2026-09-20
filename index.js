@@ -102,8 +102,10 @@ fs.readdir(partialsDir, (err, files) => {
 });
 
 import jeanRoutes from "./routes/jean.js";
+import productsRoutes from "./routes/products.js";
 
 app.use("/jean", jeanRoutes);
+app.use("/products", productsRoutes);
 
 app.use("/", router);
 

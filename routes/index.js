@@ -26,7 +26,14 @@
     
 import express from "express";
 import { homePage } from "../controllers/homeController.js";
+import { dashboardPage } from "../controllers/dashboardController.js";
+import { usersPage } from "../controllers/usersController.js";
+import { settingsPage } from "../controllers/settingsController.js";
 const router = express.Router();
 router.get("/", homePage);
+router.get("/dashboard", dashboardPage);
+
+router.get("/users", usersPage);
+router.get("/settings", settingsPage);
 
 export default router;

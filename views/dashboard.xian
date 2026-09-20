@@ -1,0 +1,180 @@
+{{> header}}
+<body class="bg-gray-100">
+
+  {{> sidebar}}
+  {{> topbar}}
+  {{> breadcrumbs}}
+
+  <main class="ml-64 mt-8 p-6">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-800">Welcome back, {{ username }}</h1>
+        <p class="text-sm text-gray-500">Here's what's happening with your store today.</p>
+      </div>
+    </div>
+
+    {{> metrics}}
+
+    <!-- Charts -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
+      <!-- Orders line chart -->
+      <div class="bg-white rounded-lg shadow p-4 lg:col-span-2">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-sm font-semibold text-gray-700">Orders, last 7 days</h2>
+          <span class="text-xs text-gray-400">Daily count</span>
+        </div>
+        <svg viewBox="0 0 350 140" class="w-full h-40">
+          <polyline points="10,20 15,20 15,120 10,120" fill="none" stroke="none"></polyline>
+          <line x1="0" y1="10" x2="350" y2="10" stroke="#f0efec" />
+          <line x1="0" y1="55" x2="350" y2="55" stroke="#f0efec" />
+          <line x1="0" y1="100" x2="350" y2="100" stroke="#f0efec" />
+
+          <polyline
+            fill="none"
+            stroke="#2a78d6"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            points="10,82 65,46 120,64 175,14 230,58 285,0 340,58"
+          />
+          <polygon
+            fill="#2a78d61a"
+            points="10,82 65,46 120,64 175,14 230,58 285,0 340,58 340,120 10,120"
+          />
+          <circle cx="10" cy="82" r="4" fill="#2a78d6" />
+          <circle cx="65" cy="46" r="4" fill="#2a78d6" />
+          <circle cx="120" cy="64" r="4" fill="#2a78d6" />
+          <circle cx="175" cy="14" r="4" fill="#2a78d6" />
+          <circle cx="230" cy="58" r="4" fill="#2a78d6" />
+          <circle cx="285" cy="0" r="4" fill="#2a78d6" />
+          <circle cx="340" cy="58" r="4" fill="#2a78d6" />
+        </svg>
+        <div class="flex justify-between text-xs text-gray-500 mt-1">
+          <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+        </div>
+      </div>
+
+      <!-- Category breakdown: donut chart -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h2 class="text-sm font-semibold text-gray-700 mb-4">Products by category</h2>
+        <div class="flex items-center gap-4">
+          <div
+            class="w-28 h-28 rounded-full shrink-0"
+            style="background: conic-gradient(#2a78d6 0% 37.5%, #eb6834 37.5% 64.2%, #1baf7a 64.2% 87.5%, #a1a1aa 87.5% 100%);"
+          >
+            <div class="w-16 h-16 bg-white rounded-full m-6 flex items-center justify-center text-sm font-bold text-gray-700">120</div>
+          </div>
+          <div class="space-y-2 text-xs text-gray-600">
+            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span> Apparel — 45</div>
+            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span> Electronics — 32</div>
+            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-green-500"></span> Home — 28</div>
+            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-gray-400"></span> Other — 15</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <!-- New users: radial progress rings -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h2 class="text-sm font-semibold text-gray-700 mb-4">New users, last 6 months</h2>
+        <div class="grid grid-cols-3 gap-4">
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-gray-700" style="background: conic-gradient(#1baf7a 33%, #f0efec 0);">
+              <div class="w-11 h-11 bg-white rounded-full flex items-center justify-center">4</div>
+            </div>
+            <span class="text-xs text-gray-500 mt-1">Apr</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-gray-700" style="background: conic-gradient(#1baf7a 50%, #f0efec 0);">
+              <div class="w-11 h-11 bg-white rounded-full flex items-center justify-center">6</div>
+            </div>
+            <span class="text-xs text-gray-500 mt-1">May</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-gray-700" style="background: conic-gradient(#1baf7a 42%, #f0efec 0);">
+              <div class="w-11 h-11 bg-white rounded-full flex items-center justify-center">5</div>
+            </div>
+            <span class="text-xs text-gray-500 mt-1">Jun</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-gray-700" style="background: conic-gradient(#1baf7a 75%, #f0efec 0);">
+              <div class="w-11 h-11 bg-white rounded-full flex items-center justify-center">9</div>
+            </div>
+            <span class="text-xs text-gray-500 mt-1">Jul</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-gray-700" style="background: conic-gradient(#008300 100%, #f0efec 0);">
+              <div class="w-11 h-11 bg-white rounded-full flex items-center justify-center">12</div>
+            </div>
+            <span class="text-xs text-gray-500 mt-1">Aug</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-gray-700" style="background: conic-gradient(#1baf7a 75%, #f0efec 0);">
+              <div class="w-11 h-11 bg-white rounded-full flex items-center justify-center">9</div>
+            </div>
+            <span class="text-xs text-gray-500 mt-1">Sep</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Revenue vs target -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h2 class="text-sm font-semibold text-gray-700 mb-4">Revenue vs target (in thousands)</h2>
+        <div class="space-y-3">
+          <div>
+            <div class="flex justify-between text-xs text-gray-600 mb-1">
+              <span>Jan — ₱12k / ₱14k target</span>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-2">
+              <div class="bg-blue-500 h-2 rounded-full" style="width: 60%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs text-gray-600 mb-1">
+              <span>Feb — ₱15k / ₱14k target</span>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-2">
+              <div class="bg-blue-500 h-2 rounded-full" style="width: 75%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs text-gray-600 mb-1">
+              <span>Mar — ₱14k / ₱16k target</span>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-2">
+              <div class="bg-blue-500 h-2 rounded-full" style="width: 70%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs text-gray-600 mb-1">
+              <span>Apr — ₱18k / ₱16k target</span>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-2">
+              <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs text-gray-600 mb-1">
+              <span>May — ₱20k / ₱18k target</span>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-2">
+              <div class="bg-blue-600 h-2 rounded-full" style="width: 100%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs text-gray-600 mb-1">
+              <span>Jun — ₱22k / ₱20k target</span>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-2">
+              <div class="bg-blue-600 h-2 rounded-full" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{> table}}
+  </main>
+
+  {{> footer}}

@@ -1,0 +1,26 @@
+<table class="w-full bg-white rounded-lg shadow overflow-hidden mt-6">
+  <thead class="bg-gray-800 text-white">
+    <tr>
+      <th class="text-left px-4 py-2">Product</th>
+      <th class="text-left px-4 py-2">Status</th>
+      <th class="text-left px-4 py-2">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="border-b">
+      <td class="px-4 py-2">Wireless Mouse</td>
+      <td class="px-4 py-2">Shipped</td>
+      <td class="px-4 py-2">₱450</td>
+    </tr>
+    <tr class="border-b">
+      <td class="px-4 py-2">Keyboard</td>
+      <td class="px-4 py-2">Pending</td>
+      <td class="px-4 py-2">₱890</td>
+    </tr>
+    <tr class="border-b">
+      <td class="px-4 py-2">Monitor Stand</td>
+      <td class="px-4 py-2">Delivered</td>
+      <td class="px-4 py-2">₱1,200</td>
+    </tr>
+  </tbody>
+</table>
