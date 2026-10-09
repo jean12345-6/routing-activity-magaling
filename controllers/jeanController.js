@@ -10,15 +10,15 @@ export const jeanController = {
 
   search: (req, res) => {
     const q = req.query.q || "none";
-    res.json({ message: `Search query received: ${q}` });
+    res.send(`Search query received: ${q}`);
   },
 
   submit: (req, res) => {
     const data = req.body;
-    res.json({ message: "Data submitted successfully", data });
+    res.send("Data submitted successfully");
   },
 
   about: (req, res) => {
-    res.json({ message: "This is Jean's about route." });
+    res.send("This is Jean's about route.");
   },
 };
