@@ -12,7 +12,7 @@ const router = express.Router();
 router.get("/activities", activitiesPage);
 
 router.get("/activity1", (req, res) => {
-  res.json({ message: "Welcome to Jean's routes!" });
+  res.send("Welcome to Jean's routes!");
 });
 
 // Pages

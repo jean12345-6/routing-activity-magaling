@@ -1,11 +1,11 @@
 export const jeanController = {
   intro: (req, res) => {
-    res.json({ message: "Welcome to Jean's routes!" });
+    res.send("Welcome to Jean's routes!");
   },
 
   getById: (req, res) => {
     const id = req.params.id;
-    res.json({ message: `You requested item with ID: ${id}` });
+    res.send(`You requested item with ID: ${id}`);
   },
 
   search: (req, res) => {

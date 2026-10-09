@@ -4,7 +4,7 @@ export const activitiesPage = (req, res) => {
       number: 1,
       name: "Routes only (logic inside the route, no controller)",
       date: "2026-09-10 (original at /jean), recreated 2026-10-09 at /activity1",
-      links: ["/jean", "/activity1"]
+      links: ["/activity1"]
     },
     {
       number: 2,
@@ -22,7 +22,7 @@ export const activitiesPage = (req, res) => {
       number: 4,
       name: "Routes + controller + param + view (res.render with a .xian view)",
       date: "2026-09-15",
-      links: ["/activity4", "/activity4/5"]
+      links: ["/activity4/5"]
     },
     {
       number: 5,
