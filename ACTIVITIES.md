@@ -7,31 +7,30 @@ Start the app with `npm run xian`, then open **http://localhost:3000/activities*
 | 1 | Routes only (logic inside the route, no controller) | 2026-09-10 (original), recreated on 2026-10-09 | http://localhost:3000/jean (original) and http://localhost:3000/activity1 (recreated) | `routes/index.js` |
 | 2 | Routes + controller | 2026-09-10 | http://localhost:3000/jean | `routes/jean.js`, `controllers/jeanController.js` |
 | 3 | Routes + controller + param | 2026-09-10 | http://localhost:3000/jean/5 | `routes/jean.js`, `controllers/jeanController.js` |
-| 4 | Routes + controller + param + view | 2026-09-15 | http://localhost:3000/activity4 and http://localhost:3000/activity4/5 | `routes/activity4.js`, `controllers/activity4Controller.js`, `views/activity4.xian` |
+| 4 | Routes + controller + param + view | 2026-09-15 | http://localhost:3000/activity4/5 | `routes/activity4.js`, `controllers/activity4Controller.js`, `views/activity4.xian` |
 | 5 | Admin dashboard | 2026-09-16 to 2026-09-20 | http://localhost:3000/admin/dashboard | `controllers/dashboardController.js`, `views/dashboard.xian`, `views/partials/*.xian` |
 
 ## Activity 1 — Routes only
 - **Date:** recreated on 2026-10-09; the original was the `/jean` route from 2026-09-10
-- **What it shows:** `router.get("/activity1", (req, res) => { ... })`. The logic is written directly inside the route, with no controller. It returns the same message as the original: `{"message":"Welcome to Jean's routes!"}`
+- **What it shows:** `router.get("/activity1", (req, res) => { ... })`. The logic is written directly inside the route, with no controller. It uses `res.send()` and returns plain text: `Welcome to Jean's routes!`
 - **URLs:** `/jean` (original, now uses a controller) and `/activity1` (recreated)
-- **Files:** `routes/index.js` (look for `// ACTIVITY 1`)
+- **Files:** `routes/index.js` (look for `router.get("/activity1", ...)`)
 
 ## Activity 2 — Routes + controller
 - **Date:** 2026-09-10 (git commit `f4ffe3c`)
 - **What it shows:** routes in `routes/jean.js` that call functions in `controllers/jeanController.js`. The routes are mounted at `/jean` in `index.js`.
-- **URLs:** `/jean`, `/jean/about`, `/jean/search/query?q=shoes`, `POST /jean/submit`
+- **URL:** `/jean` → plain text: `Welcome to Jean's routes!` (`jeanController.intro` uses `res.send()`)
 
 ## Activity 3 — Routes + controller + param
 - **Date:** 2026-09-10 (git commit `f4ffe3c`)
-- **What it shows:** `router.get("/:id", jeanController.getById)`. The controller reads `req.params.id` and returns it.
-- **URL:** `/jean/5` → `{"message":"You requested item with ID: 5"}`
+- **What it shows:** `router.get("/:id", jeanController.getById)`. The controller reads `req.params.id` and returns it with `res.send()`.
+- **URL:** `/jean/5` → plain text: `You requested item with ID: 5`
 - **Files:** `routes/jean.js`, `controllers/jeanController.js` (same files as Activity 2)
 
 ## Activity 4 — Routes + controller + param + view
 - **Date:** 2026-09-15 (from VS Code Local History; this version was replaced on 2026-09-16 by the admin Products page)
 - **What it shows:**
-  - `/activity4`: the controller uses `res.render("activity4", { title, content })` to show the `.xian` view `views/activity4.xian`
-  - `/activity4/5`: the controller reads `req.params.id` and shows it in the same view with `res.render("activity4", { title: "Product", content: id })`
+  - `/activity4/5`: the controller reads `req.params.id` and shows it in the `.xian` view `views/activity4.xian` with `res.render("activity4", { title: "Product", content: id })`
 - **Files:** `routes/activity4.js`, `controllers/activity4Controller.js`, `views/activity4.xian`
 - **Note:** The code was restored from the version of `controllers/productsController.js` saved on 2026-09-15 09:54:22. `getOne` was changed to render a view (it originally returned JSON). It first used `views/test.xian`; it now has its own view, `views/activity4.xian` (a copy of `test.xian` without the 2026-10-06 table).
 
