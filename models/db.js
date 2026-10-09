@@ -25,7 +25,6 @@
     
 import { Sequelize } from "sequelize";
 
-// Load DB_PASSWORD from the .env file (built into Node, no package needed)
 try {
   process.loadEnvFile();
 } catch {

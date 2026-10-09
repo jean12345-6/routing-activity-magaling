@@ -4,7 +4,7 @@ import { User } from "./models/userModel.js";
 import inquirer from "inquirer";
 import { Product } from "./models/Product.js";
 
-// 👉 Your MySQL root password is in the .env file (loaded by models/db.js)
+// 👉 Put your MySQL root password here
 const DB_PASSWORD = process.env.DB_PASSWORD || "";
 
 const rootSequelize = new Sequelize(
