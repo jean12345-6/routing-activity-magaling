@@ -3,7 +3,7 @@ export const activitiesPage = (req, res) => {
     {
       number: 1,
       name: "Routes only (logic inside the route, no controller)",
-      date: "2026-09-10 (original at /jean), recreated at /activity1",
+      date: "2026-09-10 (original at /jean), recreated 2026-10-09 at /activity1",
       links: ["/jean", "/activity1"]
     },
     {
