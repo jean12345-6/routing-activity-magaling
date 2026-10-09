@@ -4,14 +4,14 @@ Start the app with `npm run xian`, then open **http://localhost:3000/activities*
 
 | # | Activity | Date done | URL to open | Files to look at |
 |---|---|---|---|---|
-| 1 | Routes only (logic inside the route, no controller) | 2026-09-10 (original), recreated later | http://localhost:3000/jean (original) and http://localhost:3000/activity1 (recreated) | `routes/index.js` |
+| 1 | Routes only (logic inside the route, no controller) | 2026-09-10 (original), recreated on 2026-10-09 | http://localhost:3000/jean (original) and http://localhost:3000/activity1 (recreated) | `routes/index.js` |
 | 2 | Routes + controller | 2026-09-10 | http://localhost:3000/jean | `routes/jean.js`, `controllers/jeanController.js` |
 | 3 | Routes + controller + param | 2026-09-10 | http://localhost:3000/jean/5 | `routes/jean.js`, `controllers/jeanController.js` |
 | 4 | Routes + controller + param + view | 2026-09-15 | http://localhost:3000/activity4 and http://localhost:3000/activity4/5 | `routes/activity4.js`, `controllers/activity4Controller.js`, `views/test.xian` |
 | 5 | Admin dashboard | 2026-09-16 to 2026-09-20 | http://localhost:3000/admin/dashboard | `controllers/dashboardController.js`, `views/dashboard.xian`, `views/partials/*.xian` |
 
 ## Activity 1 — Routes only
-- **Date:** 2026-09-10 (original at `/jean`; the logic was later moved into `jeanController`, which became Activity 2)
+- **Date:** recreated on 2026-10-09; the original was the `/jean` route from 2026-09-10
 - **What it shows:** `router.get("/activity1", (req, res) => { ... })`. The logic is written directly inside the route, with no controller. It returns the same message as the original: `{"message":"Welcome to Jean's routes!"}`
 - **URLs:** `/jean` (original, now uses a controller) and `/activity1` (recreated)
 - **Files:** `routes/index.js` (look for `// ACTIVITY 1`)

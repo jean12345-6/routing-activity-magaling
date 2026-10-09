@@ -12,7 +12,7 @@ const router = express.Router();
 // LIST OF ALL ACTIVITIES (for checking)
 router.get("/activities", activitiesPage);
 
-// ACTIVITY 1 — routes only (recreated; original was /jean on 2026-09-10, logic later moved into jeanController)
+// ACTIVITY 1 — routes only (recreated on 2026-10-09; original was the /jean route from 2026-09-10)
 router.get("/activity1", (req, res) => {
   res.json({ message: "Welcome to Jean's routes!" });
 });
