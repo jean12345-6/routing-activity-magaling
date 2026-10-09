@@ -60,3 +60,30 @@ export const destroy = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// ===== Activity 3: Views =====
+
+// SHOW TABLE - GET /library
+export const listPage = async (req, res) => {
+  try {
+    const books = await Book.findAll({ raw: true });
+    res.render("books/index", { books });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+// SHOW FORM - GET /library/create
+export const createPage = (req, res) => {
+  res.render("books/create");
+};
+
+// SAVE FORM - POST /library
+export const store = async (req, res) => {
+  try {
+    await Book.create(req.body);
+    res.redirect("/library");
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
