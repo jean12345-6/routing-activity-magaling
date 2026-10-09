@@ -7,7 +7,7 @@ Start the app with `npm run xian`, then open **http://localhost:3000/activities*
 | 1 | Routes only (logic inside the route, no controller) | 2026-09-10 (original), recreated on 2026-10-09 | http://localhost:3000/jean (original) and http://localhost:3000/activity1 (recreated) | `routes/index.js` |
 | 2 | Routes + controller | 2026-09-10 | http://localhost:3000/jean | `routes/jean.js`, `controllers/jeanController.js` |
 | 3 | Routes + controller + param | 2026-09-10 | http://localhost:3000/jean/5 | `routes/jean.js`, `controllers/jeanController.js` |
-| 4 | Routes + controller + param + view | 2026-09-15 | http://localhost:3000/activity4 and http://localhost:3000/activity4/5 | `routes/activity4.js`, `controllers/activity4Controller.js`, `views/test.xian` |
+| 4 | Routes + controller + param + view | 2026-09-15 | http://localhost:3000/activity4 and http://localhost:3000/activity4/5 | `routes/activity4.js`, `controllers/activity4Controller.js`, `views/activity4.xian` |
 | 5 | Admin dashboard | 2026-09-16 to 2026-09-20 | http://localhost:3000/admin/dashboard | `controllers/dashboardController.js`, `views/dashboard.xian`, `views/partials/*.xian` |
 
 ## Activity 1 — Routes only
@@ -30,10 +30,10 @@ Start the app with `npm run xian`, then open **http://localhost:3000/activities*
 ## Activity 4 — Routes + controller + param + view
 - **Date:** 2026-09-15 (from VS Code Local History; this version was replaced on 2026-09-16 by the admin Products page)
 - **What it shows:**
-  - `/activity4`: the controller uses `res.render("test", { title, content })` to show the `.xian` view `views/test.xian`
-  - `/activity4/5`: the controller reads `req.params.id` and shows it in the same view with `res.render("test", { title: "Product", content: id })`
-- **Files:** `routes/activity4.js`, `controllers/activity4Controller.js`, `views/test.xian`
-- **Note:** The code was restored from the version of `controllers/productsController.js` saved on 2026-09-15 09:54:22. `getOne` was changed to render a view (it originally returned JSON). `views/test.xian` got a table on 2026-10-06; the table shows empty here because this activity doesn't send table data.
+  - `/activity4`: the controller uses `res.render("activity4", { title, content })` to show the `.xian` view `views/activity4.xian`
+  - `/activity4/5`: the controller reads `req.params.id` and shows it in the same view with `res.render("activity4", { title: "Product", content: id })`
+- **Files:** `routes/activity4.js`, `controllers/activity4Controller.js`, `views/activity4.xian`
+- **Note:** The code was restored from the version of `controllers/productsController.js` saved on 2026-09-15 09:54:22. `getOne` was changed to render a view (it originally returned JSON). It first used `views/test.xian`; it now has its own view, `views/activity4.xian` (a copy of `test.xian` without the 2026-10-06 table).
 
 ## Activity 5 — Admin dashboard
 - **Date:** 2026-09-16 to 2026-09-20 (git commit `af075dd`, 2026-09-20)

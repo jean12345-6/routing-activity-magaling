@@ -3,13 +3,13 @@
 // getOne changed to render a view (originally returned JSON)
 export const activity4Controller = {
   intro: (req, res) => {
-    res.render("test", {
+    res.render("activity4", {
       title: "Hello World",
       content: "Dito lang change mo ang laman"
     });
   },
   getOne: (req, res) => {
     const { id } = req.params;
-    res.render("test", { title: "Product", content: id });
+    res.render("activity4", { title: "Product", content: id });
   },
 };
