@@ -7,7 +7,7 @@ Start the app with `npm run xian`, then open **http://localhost:3000/activities*
 | 1 | Routes only (logic inside the route, no controller) | 2026-09-10 (original), recreated on 2026-10-09 | http://localhost:3000/jean (original) and http://localhost:3000/activity1 (recreated) | `routes/index.js` |
 | 2 | Routes + controller | 2026-09-10 | http://localhost:3000/jean | `routes/jean.js`, `controllers/jeanController.js` |
 | 3 | Routes + controller + param | 2026-09-10 | http://localhost:3000/jean/5 | `routes/jean.js`, `controllers/jeanController.js` |
-| 4 | Routes + controller + param + view | 2026-09-15 | http://localhost:3000/activity4/5 | `routes/activity4.js`, `controllers/activity4Controller.js`, `views/activity4.xian` |
+| 4 | Routes + controller + param + view | 2026-09-15 | http://localhost:3000/products/5 | `routes/products.js`, `controllers/productsController.js`, `views/index.xian`, `views/partials/test.xian` |
 | 5 | Admin dashboard | 2026-09-16 to 2026-09-20 | http://localhost:3000/admin/dashboard | `controllers/dashboardController.js`, `views/dashboard.xian`, `views/partials/*.xian` |
 
 ## Activity 1 — Routes only
@@ -30,9 +30,9 @@ Start the app with `npm run xian`, then open **http://localhost:3000/activities*
 ## Activity 4 — Routes + controller + param + view
 - **Date:** 2026-09-15 (from VS Code Local History; this version was replaced on 2026-09-16 by the admin Products page)
 - **What it shows:**
-  - `/activity4/5`: the controller reads `req.params.id` and shows it in the `.xian` view `views/activity4.xian` with `res.render("activity4", { title: "Product", content: id })`
-- **Files:** `routes/activity4.js`, `controllers/activity4Controller.js`, `views/activity4.xian`
-- **Note:** The code was restored from the version of `controllers/productsController.js` saved on 2026-09-15 09:54:22. `getOne` was changed to render a view (it originally returned JSON). It first used `views/test.xian`; it now has its own view, `views/activity4.xian` (a copy of `test.xian` without the 2026-10-06 table).
+  - `/products/5`: `router.get("/:id", productsController.getOne)`. The controller reads `req.params.id` and shows it in the `.xian` view `views/index.xian` with `res.render("index", { title: "Product", content: id })`. `index.xian` uses the header partial, the `test` partial (`views/partials/test.xian`, which shows `{{title}}` and `{{content}}`) and the footer partial.
+- **Files:** `routes/products.js`, `controllers/productsController.js`, `views/index.xian`, `views/partials/test.xian`
+- **Note:** Activity 4 is back in `controllers/productsController.js` and `routes/products.js`, where it was first done on 2026-09-15. `getOne` was changed to render a view (it originally returned JSON).
 
 ## Activity 5 — Admin dashboard
 - **Date:** 2026-09-16 to 2026-09-20 (git commit `af075dd`, 2026-09-20)
@@ -46,7 +46,6 @@ Start the app with `npm run xian`, then open **http://localhost:3000/activities*
 | `/test` (table with `{{#each}}`) | 2026-10-06 | `controllers/testController.js`, `views/test.xian` |
 | `/product` | 2026-10-06 | `controllers/product.js` (`product.index`) |
 | `/api/products` (GET, POST), `/api/products/:id` (GET, PUT, DELETE) | 2026-10-06 | `controllers/product.js`, `models/Product.js` — needs MySQL |
-| `/products/:id` | 2026-09-15 | `routes/products.js`, `controllers/productsController.js` |
 
 ## Setup
 1. Copy `.env.example` to `.env` and put your MySQL root password in `DB_PASSWORD`.

@@ -8,6 +8,6 @@ export const productsController = {
   },
   getOne: (req, res) => {
     const { id } = req.params;
-    res.json({ message: `You requested product with ID: ${id}` });
+    res.render("index", { title: "Product", content: id });
   },
 };

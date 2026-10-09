@@ -22,7 +22,7 @@ export const activitiesPage = (req, res) => {
       number: 4,
       name: "Routes + controller + param + view (res.render with a .xian view)",
       date: "2026-09-15",
-      links: ["/activity4/5"]
+      links: ["/products/5"]
     },
     {
       number: 5,

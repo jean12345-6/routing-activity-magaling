@@ -103,11 +103,9 @@ fs.readdir(partialsDir, (err, files) => {
 
 import jeanRoutes from "./routes/jean.js";
 import productsRoutes from "./routes/products.js";
-import activity4Routes from "./routes/activity4.js";
 
 app.use("/jean", jeanRoutes);
 app.use("/products", productsRoutes);
-app.use("/activity4", activity4Routes);
 
 app.use("/", router);
 

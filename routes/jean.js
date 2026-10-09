@@ -13,4 +13,4 @@ router.post("/submit", jeanController.submit);
 
 router.get("/:id", jeanController.getById);
 
-export default router;
+export default router;  
