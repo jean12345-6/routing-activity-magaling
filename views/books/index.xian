@@ -21,6 +21,7 @@
       <th>Genre</th>
       <th>Year</th>
       <th>Price</th>
+      <th>Actions</th>
     </tr>
     {{#each books}}
     <tr>
@@ -30,9 +31,15 @@
       <td>{{genre}}</td>
       <td>{{year}}</td>
       <td>{{price}}</td>
+       <td>
+        <a href="/library/{{id}}">Edit</a>
+        <form method="POST" action="/library/{{id}}/delete" style="display:inline">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
     </tr>
     {{else}}
-    <tr><td colspan="6">No books yet.</td></tr>
+    <tr><td colspan="7">No books yet.</td></tr>
     {{/each}}
   </table>
 </body>

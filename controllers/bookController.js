@@ -87,3 +87,44 @@ export const store = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
+
+// SHOW EDIT FORM - GET /library/:id
+export const editPage = async (req, res) => {
+  try {
+    const book = await Book.findByPk(req.params.id, { raw: true });
+    if (!book) {
+      return res.status(404).send("Book not found");
+    }
+    res.render("books/edit", { book });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+// SAVE EDIT - POST /library/:id
+export const saveEdit = async (req, res) => {
+  try {
+    const book = await Book.findByPk(req.params.id);
+    if (!book) {
+      return res.status(404).send("Book not found");
+    }
+    await book.update(req.body);
+    res.redirect("/library");
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+// DELETE - POST /library/:id/delete
+export const remove = async (req, res) => {
+  try {
+    const book = await Book.findByPk(req.params.id);
+    if (!book) {
+      return res.status(404).send("Book not found");
+    }
+    await book.destroy();
+    res.redirect("/library");
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
