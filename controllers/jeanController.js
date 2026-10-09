@@ -15,7 +15,7 @@ export const jeanController = {
 
   submit: (req, res) => {
     const data = req.body;
-    res.send("Data submitted successfully");
+    res.send(`Data submitted successfully: ${JSON.stringify(data)}`);
   },
 
   about: (req, res) => {
