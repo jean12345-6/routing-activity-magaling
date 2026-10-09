@@ -12,4 +12,4 @@ export const testPage = (req, res) => {
     content: "Hello world",
     data
   });
-};
+};  
