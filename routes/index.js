@@ -7,7 +7,7 @@ import { testPage } from "../controllers/testController.js";
 import { product } from "../controllers/product.js";
 import { activitiesPage } from "../controllers/activitiesController.js";
 import Book from "../models/Book.js";
-import { insert, get, show } from "../controllers/bookController.js";
+import { insert, get, show, update, destroy } from "../controllers/bookController.js";
 
 const router = express.Router();
 
@@ -38,5 +38,8 @@ router.delete("/api/products/:id", product.remove);
 router.post("/books", insert);
 router.get("/books", get);
 router.get("/books/:id", show);
+// Book API (Activity 2)
+router.put("/books/:id", update);
+router.delete("/books/:id", destroy);
 
 export default router;
