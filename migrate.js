@@ -1,10 +1,15 @@
-
 import { Sequelize } from "sequelize";
 import { sequelize } from "./models/db.js";
 import { User } from "./models/userModel.js";
 import inquirer from "inquirer";
+import { Product } from "./models/Product.js";
 
-const rootSequelize = new Sequelize("mysql://root:@localhost:3306/");
+// 👉 Your MySQL root password is in the .env file (loaded by models/db.js)
+const DB_PASSWORD = process.env.DB_PASSWORD || "";
+
+const rootSequelize = new Sequelize(
+  `mysql://root:${encodeURIComponent(DB_PASSWORD)}@localhost:3306/`
+);
 
 const { createDb } = await inquirer.prompt([
   {
@@ -16,7 +21,7 @@ const { createDb } = await inquirer.prompt([
 ]);
 
 if (createDb) {
-  await rootSequelize.query("CREATE DATABASE IF NOT EXISTS routing-activity;");
+  await rootSequelize.query("CREATE DATABASE IF NOT EXISTS `routing-activity`;");
   console.log("✅ Database created (if it did not exist)");
 }
 

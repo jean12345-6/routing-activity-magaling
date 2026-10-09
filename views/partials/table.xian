@@ -7,20 +7,12 @@
     </tr>
   </thead>
   <tbody>
+    {{#each orders}}
     <tr class="border-b">
-      <td class="px-4 py-2">Wireless Mouse</td>
-      <td class="px-4 py-2">Shipped</td>
-      <td class="px-4 py-2">₱450</td>
+      <td class="px-4 py-2">{{product}}</td>
+      <td class="px-4 py-2">{{status}}</td>
+      <td class="px-4 py-2">{{amount}}</td>
     </tr>
-    <tr class="border-b">
-      <td class="px-4 py-2">Keyboard</td>
-      <td class="px-4 py-2">Pending</td>
-      <td class="px-4 py-2">₱890</td>
-    </tr>
-    <tr class="border-b">
-      <td class="px-4 py-2">Monitor Stand</td>
-      <td class="px-4 py-2">Delivered</td>
-      <td class="px-4 py-2">₱1,200</td>
-    </tr>
+    {{/each}}
   </tbody>
 </table>

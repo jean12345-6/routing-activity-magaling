@@ -22,17 +22,20 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
     */
-    
-import { Sequelize } from "sequelize";
+  // Firebase doesn't require predefined models.
+  // Use Firestore directly in controllers or create helper functions here.
+  // Collection name: "product"
 
-// Load DB_PASSWORD from the .env file (built into Node, no package needed)
-try {
-  process.loadEnvFile();
-} catch {
-  console.warn("⚠️ No .env file found. Copy .env.example to .env and set DB_PASSWORD.");
-}
+  import { DataTypes } from "sequelize";
+import { sequelize } from "./db.js";
 
-export const sequelize = new Sequelize("routing-activity", "root", process.env.DB_PASSWORD || "", {
-  host: "localhost",
-  dialect: "mysql"
+
+export const Product = sequelize.define("product", {
+
+  Name: { type: DataTypes.STRING, allowNull: false },
+  Description: { type: DataTypes.STRING, allowNull: false },
+  Category: { type: DataTypes.STRING, allowNull: false },
+  Price: { type: DataTypes.FLOAT, allowNull: false },
+  Stocks: { type: DataTypes.INTEGER, allowNull: false },
 });
+export { sequelize };
